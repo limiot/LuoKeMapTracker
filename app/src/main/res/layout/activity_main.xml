@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0f0f1e"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- 头部 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🗺️ 洛克王国世界\n地图实时追踪"
+            android:textSize="24sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MediaProjection + ORB 特征匹配"
+            android:textSize="13sp"
+            android:textColor="#666688"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 状态卡片 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#1a1a30"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔴 未启动"
+                android:textSize="18sp"
+                android:textColor="#ff6b6b"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_coords"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="等待定位..."
+                android:textSize="14sp"
+                android:textColor="#aaaacc"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_map_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⚠️ 未选择大地图"
+                android:textSize="13sp"
+                android:textColor="#888899" />
+        </LinearLayout>
+
+        <!-- 控制按钮 -->
+        <Button
+            android:id="@+id/btn_select_map"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="📁 选择大地图文件"
+            android:textSize="15sp"
+            android:backgroundTint="#2196F3"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="🚀 开始追踪"
+            android:textSize="15sp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="⏹ 停止追踪"
+            android:textSize="15sp"
+            android:backgroundTint="#f44336"
+            android:textColor="#ffffff"
+            android:enabled="false"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 分隔线 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#2a2a40"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 校准区域 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📐 小地图区域校准"
+            android:textSize="16sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:id="@+id/tv_calibration_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="区域: (0, 0) 300x300"
+            android:textSize="12sp"
+            android:textColor="#666688"
+            android:layout_marginBottom="14dp" />
+
+        <!-- X -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="X 偏移（小地图左边距）"
+            android:textSize="12sp"
+            android:textColor="#888899" />
+        <SeekBar
+            android:id="@+id/sb_minimap_x"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="1000"
+            android:progress="0"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Y -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Y 偏移（小地图顶边距）"
+            android:textSize="12sp"
+            android:textColor="#888899" />
+        <SeekBar
+            android:id="@+id/sb_minimap_y"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="2000"
+            android:progress="0"
+            android:layout_marginBottom="10dp" />
+
+        <!-- W -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="宽度（小地图宽度）"
+            android:textSize="12sp"
+            android:textColor="#888899" />
+        <SeekBar
+            android:id="@+id/sb_minimap_w"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="800"
+            android:progress="300"
+            android:layout_marginBottom="10dp" />
+
+        <!-- H -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="高度（小地图高度）"
+            android:textSize="12sp"
+            android:textColor="#888899" />
+        <SeekBar
+            android:id="@+id/sb_minimap_h"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="800"
+            android:progress="300"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 使用说明 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#2a2a40"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="使用说明"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. 点击「选择大地图」导入完整高清地图\n2. 进入游戏，用校准条框出小地图位置\n3. 点击「开始追踪」授予权限\n4. 切回游戏，悬浮窗显示实时位置\n5. 绿色=高置信度 黄色=中等 红色=低\n\n💡 首次校准技巧：\n  截图游戏中带小地图的画面，\n  对照调整 X/Y/宽/高 值"
+            android:textSize="12sp"
+            android:textColor="#555577"
+            android:lineSpacingExtra="3dp" />
+
+    </LinearLayout>
+</ScrollView>
