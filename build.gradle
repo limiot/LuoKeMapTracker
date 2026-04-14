@@ -15,4 +15,16 @@ allprojects {
         google()
         mavenCentral()
     }
+
+    // 统一 JVM 目标版本，修复 OpenCV SDK 的 Java 1.8 与项目 Kotlin 17 冲突
+    afterEvaluate {
+        if (plugins.hasPlugin('com.android.library') || plugins.hasPlugin('com.android.application')) {
+            android {
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_17
+                    targetCompatibility JavaVersion.VERSION_17
+                }
+            }
+        }
+    }
 }
